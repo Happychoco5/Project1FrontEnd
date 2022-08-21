@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Meeting Creation Form</title>
+</head>
+<body>
+    <nav><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="complaint-submission.html">Complaint Submission|</a><a href="login.html">Login</a><a onclick="logoutUser()">Logout</a></nav>
+    <h1>Create Meeting</h1>
+    <form>
+        <fieldset>
+            <legend>Meeting Creation</legend>
+            <label for="inputSummary">Summary:</label>
+            <input id="inputSummary" type="text" placeholder="" required minlength="3" maxlength="50">
+    
+            <label for="inputAddress">Address:</label>
+            <input id="inputAddress" type="text" placeholder="234 Banana Way" required>
+
+            <label for="inputTime">Time:</label>
+            <input id="inputTime" type="text" placeholder="0" required>
+        </fieldset>
+
+        <button>Create</button>
+    </form>
+</body>
+<script>
+    const inputSummary = document.getElementById("inputSummary");
+    const inputAddress = document.getElementById("inputAddress");
+    const inputTime = document.getElementById("inputTime");
+
+    document.addEventListener("submit", async event =>{
+        event.preventDefault();
+
+        const summary = inputSummary.value;
+        const address = inputAddress.value;
+        const time = inputTime.value;
+
+        const meeting = {id:0, summary, address, status:'UNRESOLVED', time};
+
+        const response = await fetch("http://localhost:8080/meetings", {
+            method:"POST",
+            body:JSON.stringify(meeting),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        });
+        if(response.status === 201){
+            alert("Successfully created a meeting");
+            inputSummary.value = "";
+            inputAddress.value = "";
+            inputTime.value = "";
+        }
+        else{
+            alert("Something went wrong.");
+        }
+
+    });
+
+    function logoutUser(){
+        localStorage.clear();
+    }
+</script>
+</html>

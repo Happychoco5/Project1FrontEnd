@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="complaint-viewerCSS.css">
+    <title>Meetings</title>
+</head>
+<body>
+    <nav><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-submission.html">Meeting Submission|</a><a href="complaint-submission.html">Complaint Submission|</a><a href="">Login</a><a onclick="logoutUser()">Logout|</a></nav>
+    <h1>Meeting Viewer</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Summary</th><th>Address</th><th>Status</th><th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="meetingTableBody">
+
+        </tbody>
+    </table>
+</body>
+<script>
+    const meetingTableBody = document.getElementById("meetingTableBody");
+
+    async function getMeetings(){
+        const response = await fetch("http://localhost:8080/meetings");
+        const meetings = await response.json();
+        return meetings;
+    }
+
+    async function renderMeetingsTable(meetings){
+
+        const testMeetings = await getMeetings();
+        for(const meeting of testMeetings){
+            console.log(meeting.id);
+            const meetingRow = document.createElement("tr");
+
+            const meetingIdData = document.createElement("td");
+            meetingIdData.innerText = meeting.id;
+
+            const meetingSummaryData = document.createElement("td");
+            meetingSummaryData.innerText = meeting.summary;
+            
+            const meeitngAddressData = document.createElement("td");
+            meeitngAddressData.innerText = meeting.address;
+
+            const meetingStatusData = document.createElement("td");
+            meetingStatusData.innerText = meeting.status;
+
+            const meetingTimeData = document.createElement("td");
+            meetingTimeData.innerText = meeting.time;
+            
+            meetingRow.appendChild(meetingIdData);
+            meetingRow.appendChild(meetingSummaryData);
+            meetingRow.appendChild(meeitngAddressData);
+            meetingRow.appendChild(meetingStatusData);
+            meetingRow.appendChild(meetingTimeData);
+
+            meetingTableBody.appendChild(meetingRow);
+        }
+    }
+    
+    renderMeetingsTable();
+
+    function logoutUser(){
+        localStorage.clear();
+    }
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Complaint Submission Form</title>
+</head>
+<body>
+    <nav><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="meeting-submission.html">Meeting Creation|</a><a href="">Login</a></nav>
+    <h1>Submit Complaint</h1>
+    <form>
+        <fieldset>
+            <legend>Complaint Submission</legend>
+            <label for="inputSubject">Subject:</label>
+            <input id="inputSubject" type="text" placeholder="" required minlength="3" maxlength="50">
+    
+            <label for="inputDesc">Description:</label>
+            <input id="inputDesc" type="text" placeholder="" required>
+        </fieldset>
+
+        <button>Submit</button>
+    </form>
+</body>
+<script>
+    const inputSubject = document.getElementById("inputSubject");
+    const inputDesc = document.getElementById("inputDesc");
+
+    document.addEventListener("submit", async event =>{
+        event.preventDefault();
+
+        const subject = inputSubject.value;
+        const description = inputDesc.value;
+
+        const complaint = {id:0, subject, description, meetingId:-1, priority:'UNASSIGNED'};
+        console.log(complaint.desc);
+
+        const response = await fetch("http://localhost:8080/complaints", {
+            method:"POST",
+            body:JSON.stringify(complaint),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        });
+        if(response.status === 201){
+            alert("Successfully submitted a complaint");
+            inputSubject.value = "";
+            inputDesc.value = "";
+        }
+        else{
+            alert("Something went wrong.");
+        }
+
+    });
+</script>
+</html>
