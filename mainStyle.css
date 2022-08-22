@@ -1,0 +1,15 @@
+#navBar{
+    border: 1px solid;
+}
+#navBar > a{
+    border: 1px solid;
+    margin: 5px;
+}
+
+table, th, td{
+    border: 1px solid;
+}
+
+table{
+    border-collapse: collapse;
+}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="mainStyle.css">
     <title>Complaint Submission Form</title>
 </head>
 <body>
-    <nav><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="meeting-submission.html">Meeting Creation|</a><a href="">Login</a></nav>
+    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
     <h1>Submit Complaint</h1>
     <form>
         <fieldset>
@@ -14,11 +15,12 @@
     
             <label for="inputDesc">Description:</label>
             <input id="inputDesc" type="text" placeholder="" required>
-        </fieldset>
+        </fieldset> 
 
         <button>Submit</button>
     </form>
 </body>
+<script src="loginHandler.js"></script>
 <script>
     const inputSubject = document.getElementById("inputSubject");
     const inputDesc = document.getElementById("inputDesc");

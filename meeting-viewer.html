@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="complaint-viewerCSS.css">
+    <link rel="stylesheet" href="mainStyle.css">
     <title>Meetings</title>
 </head>
 <body>
-    <nav><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-submission.html">Meeting Submission|</a><a href="complaint-submission.html">Complaint Submission|</a><a href="">Login</a><a onclick="logoutUser()">Logout|</a></nav>
+    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
     <h1>Meeting Viewer</h1>
 
     <table>
@@ -19,6 +19,7 @@
         </tbody>
     </table>
 </body>
+<script src="loginHandler.js"></script>
 <script>
     const meetingTableBody = document.getElementById("meetingTableBody");
 
@@ -61,9 +62,5 @@
     }
     
     renderMeetingsTable();
-
-    function logoutUser(){
-        localStorage.clear();
-    }
 </script>
 </html>

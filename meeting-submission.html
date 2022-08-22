@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="mainStyle.css">
     <title>Meeting Creation Form</title>
 </head>
 <body>
-    <nav><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="complaint-submission.html">Complaint Submission|</a><a href="login.html">Login</a><a onclick="logoutUser()">Logout</a></nav>
+    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
     <h1>Create Meeting</h1>
     <form>
         <fieldset>
@@ -22,6 +23,7 @@
         <button>Create</button>
     </form>
 </body>
+<script src="loginHandler.js"></script>
 <script>
     const inputSummary = document.getElementById("inputSummary");
     const inputAddress = document.getElementById("inputAddress");
@@ -54,9 +56,5 @@
         }
 
     });
-
-    function logoutUser(){
-        localStorage.clear();
-    }
 </script>
 </html>
