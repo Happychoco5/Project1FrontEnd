@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="mainStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="complaint-submission.html">Complaint Submission|</a></nav>
+    <h2>Register Account</h2>
+    <form>
+        <fieldset>
+            <legend>Register Account</legend>
+
+            <label for="fname">First Name</label>
+            <input id="fname" type="text" placeholder="">
+
+            <label for="lname">Last Name</label>
+            <input id="lname" type="text">
+
+            <label for="username">Username</label>
+            <input id="username" type="text" placeholder="jim928">
+
+            <label for="password">Password</label>
+            <input id="password" type="password">
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" type="password">
+            <button>Register Account</button>
+
+        </fieldset>
+    </form>
+</body>
+<script>
+    const fnameInput = document.getElementById("fname");
+    const lnameInput = document.getElementById("lname");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+
+    document.addEventListener("submit", async event =>{
+        event.preventDefault();
+
+        const fname = fnameInput.value;
+        const lname = lnameInput.value;
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        const newAppUser = {username, password, fname, lname};
+
+
+        if(password !== confirmPassword)
+        {
+            alert("Password does not match.");
+            return;
+        }
+        //Create the account
+        const response = await fetch("http://localhost:8080/appusers", {
+            method:"POST",
+            body:JSON.stringify(newAppUser),
+            headers: {
+                'Content-Type':"application/json"
+            }
+        });
+        
+        if(response.status === 201)
+        {
+            alert("Successfully created an account. You will be notified when your account has been registered.");
+            //login the user
+            const credentials = {username, password};
+            const loginResponse = await fetch("http://localhost:8080/login", {
+                method:"POST",
+                body:JSON.stringify(credentials),
+                headers: {
+                'Content-Type':"application/json"
+                }
+            });
+            const appUser = await loginResponse.json();
+            console.log(appUser);
+            //Send user to new page
+            window.location = "file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/complaint-viewer.html"
+            // local storage can be used to cache information
+            appUser.password = null;
+            localStorage.setItem("appUser", JSON.stringify(appUser));
+            //localStorage.getItem("appUser");// retrieve item from local storage
+            //localStorage.clear(); // for log out
+
+            // local storage is tied by domain name
+        }
+        else{
+            alert("Could not create account");
+        }
+
+
+    });
+
+
+
+</script>
+</html>

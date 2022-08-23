@@ -2,6 +2,9 @@
     const navBar = document.getElementById("navBar");
     const button = document.createElement("button");
     const meetingCreator = document.createElement("a");
+
+    const regisButton = document.createElement("button");
+
     let loggedIn = false;
     checkLoggedIn();
 
@@ -37,9 +40,16 @@
         else
         {
             //We are logged out.
+            //Create the login button
             button.innerText = "Login";
             button.id = "logButton"
             navBar.appendChild(button);
+            
+            //Create the register account button
+            regisButton.innerText = "Register Account";
+            regisButton.id = "regisAccount";
+            navBar.appendChild(regisButton);
+
             loggedIn = false;
         }
     }
@@ -54,3 +64,10 @@
             loginUser();
         }
     });
+
+    const newRegisButton = document.getElementById("regisAccount");
+    if(newRegisButton !== null){
+        newRegisButton.addEventListener("click", event=>{
+            window.location.assign("file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/register-account.html")
+        });
+    }
