@@ -1,7 +1,9 @@
 
     const navBar = document.getElementById("navBar");
     const button = document.createElement("button");
+    const appUserViewer = document.createElement("a");
     const meetingCreator = document.createElement("a");
+    const myProfile = document.createElement("a");
 
     const regisButton = document.createElement("button");
 
@@ -33,7 +35,15 @@
                 meetingCreator.innerText = "Meeting Creator";
                 meetingCreator.href = "meeting-submission.html";
                 navBar.appendChild(meetingCreator);
+
+                appUserViewer.innerText = "AppUser Viewer";
+                appUserViewer.href = "appuser-viewer.html";
+                navBar.appendChild(appUserViewer);
             }
+            myProfile.innerText = "My Profile";
+            myProfile.href = "profile.html";
+            navBar.appendChild(myProfile);
+
             navBar.appendChild(button);
             loggedIn = true;
         }

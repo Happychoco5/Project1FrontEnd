@@ -66,26 +66,9 @@
         if(response.status === 201)
         {
             alert("Successfully created an account. You will be notified when your account has been registered.");
-            //login the user
-            const credentials = {username, password};
-            const loginResponse = await fetch("http://localhost:8080/login", {
-                method:"POST",
-                body:JSON.stringify(credentials),
-                headers: {
-                'Content-Type':"application/json"
-                }
-            });
-            const appUser = await loginResponse.json();
-            console.log(appUser);
+
             //Send user to new page
             window.location = "file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/complaint-viewer.html"
-            // local storage can be used to cache information
-            appUser.password = null;
-            localStorage.setItem("appUser", JSON.stringify(appUser));
-            //localStorage.getItem("appUser");// retrieve item from local storage
-            //localStorage.clear(); // for log out
-
-            // local storage is tied by domain name
         }
         else{
             alert("Could not create account");

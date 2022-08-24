@@ -44,24 +44,35 @@
         if(response.status === 200)
         {
             const appUser = await response.json();
-            console.log(appUser);
-            alert("login successful!");
-            //Send user to new page
-            window.location = "file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/complaint-viewer.html"
-            // local storage can be used to cache information
-            appUser.password = null;
-            localStorage.setItem("appUser", JSON.stringify(appUser));
-            localStorage.getItem("appUser");// retrieve item from local storage
-            //localStorage.clear(); // for log out
+            if(appUser.isApproved)
+            {
+                console.log(appUser);
+                alert("login successful!");
+                //Send user to new page
+                window.location = "file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/complaint-viewer.html"
+                // local storage can be used to cache information
+                appUser.password = null;
+                localStorage.setItem("appUser", JSON.stringify(appUser));
+                localStorage.getItem("appUser");// retrieve item from local storage
+                //localStorage.clear(); // for log out
 
-            // local storage is tied by domain name
+                // local storage is tied by domain name
+            }
+            else
+            {
+                alert("You must wait for approval before logging in.");
+            }
         }
         else if(response.status === 404){
             alert("Username not found");
         }
-        if(response.status === 400)
+        else if(response.status === 400)
         {
             alert("Password does not match");
+        }
+        else
+        {
+            alert("Could not log in");
         }
 
 

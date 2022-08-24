@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="mainStyle.css">
+    <title>My Profile</title>
+</head>
+<body>
+    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
+    <h1>My Profile</h1>
+    <ul id="profileInfo">
+    
+    </ul>
+
+</body>
+<script src="loginHandler.js"></script>
+<script>
+    const profileInfo = document.getElementById("profileInfo");
+    const appUser = JSON.parse(localStorage.getItem("appUser"));
+
+    function renderPage(){
+
+        const appUserFname = document.createElement("li");
+        appUserFname.innerText = appUser.fname;
+
+        const appUserLname = document.createElement("li");
+        appUserLname.innerText = appUser.lname;
+
+        const appUserUsername = document.createElement("li");
+        appUserUsername.innerText = appUser.username;
+
+        profileInfo.appendChild(appUserFname);
+        profileInfo.appendChild(appUserLname);
+        profileInfo.appendChild(appUserUsername);
+    }
+
+    renderPage();
+
+</script>
+</html>

@@ -16,8 +16,8 @@
             <label for="inputAddress">Address:</label>
             <input id="inputAddress" type="text" placeholder="234 Banana Way" required>
 
-            <label for="inputTime">Time:</label>
-            <input id="inputTime" type="text" placeholder="0" required>
+            <label for="inputTime">Date:</label>
+            <input id="inputTime" type="date" placeholder="08/24/2022" required>
         </fieldset>
 
         <button>Create</button>
@@ -34,7 +34,10 @@
 
         const summary = inputSummary.value;
         const address = inputAddress.value;
-        const time = inputTime.value;
+        const date = inputTime.value;
+
+        const time = new Date(date).valueOf();
+        console.log(time);
 
         const meeting = {id:0, summary, address, status:'UNRESOLVED', time};
 

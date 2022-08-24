@@ -49,7 +49,7 @@
             meetingStatusData.innerText = meeting.status;
 
             const meetingTimeData = document.createElement("td");
-            meetingTimeData.innerText = meeting.time;
+            meetingTimeData.innerText = new Date(meeting.time);
             
             meetingRow.appendChild(meetingIdData);
             meetingRow.appendChild(meetingSummaryData);

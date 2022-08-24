@@ -67,7 +67,13 @@ async function renderComplaintsTable(complaints){
                 complaintPriorityTD.appendChild(complaintPrioritySelect);
 
                 const complaintMeetingIdData = document.createElement("input");
-                complaintMeetingIdData.value = complaint.meetingId;
+                if(complaint.meetingId === -1)
+                {
+                    complaintMeetingIdData.value = "NONE";
+                }
+                else{
+                    complaintMeetingIdData.value = complaint.meetingId;
+                }
                 complaintMeetingIdData.id = "complaintMeeting" + complaint.id;
                 complaintMeetingTD.appendChild(complaintMeetingIdData);
                 console.log(appUser + "council");
@@ -88,7 +94,12 @@ async function renderComplaintsTable(complaints){
             {
                 complaintPriorityTD.innerText = complaint.priority;
 
-                complaintMeetingTD.innerText = complaint.meetingId; 
+                if(complaint.meetingId === -1){
+                    complaintMeetingTD.innerText = "NONE"; 
+                }
+                else{
+                    complaintMeetingTD.innerText = complaint.meetingId; 
+                }
                 
                 console.log(appUser + "constituent");
                 updateButton = null;
@@ -97,7 +108,12 @@ async function renderComplaintsTable(complaints){
         else{
             complaintPriorityTD.innerText = complaint.priority;
 
-            complaintMeetingTD.innerText = complaint.meetingId;
+            if(complaint.meetingId === -1){
+                complaintMeetingTD.innerText = "NONE"; 
+            }
+            else{
+                complaintMeetingTD.innerText = complaint.meetingId; 
+            }
             console.log(appUser + "null");
             updateButton = null;
         }
