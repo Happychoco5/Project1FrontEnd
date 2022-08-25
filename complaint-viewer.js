@@ -1,6 +1,8 @@
 const complaintTableBody = document.getElementById("complaintTableBody");
 const complaintTableHead = document.getElementById("complaintTableHead");
 
+const updateAllDiv = document.getElementById("updateDiv");
+
 const appUserJSON = localStorage.getItem("appUser"); //Gets the user from local storage. Will be undefined if not found
 
 async function getComplaints(){
@@ -12,8 +14,37 @@ async function getComplaints(){
 async function renderComplaintsTable(complaints){
     const testComplaints = await getComplaints();
     const priorities = ["HIGH", "LOW", "IGNORED", "UNASSIGNED", "ADDRESSED"]
+    const appUser = JSON.parse(appUserJSON);
     console.log(testComplaints);
     let count = 0;
+    // if(appUser !== null){
+    //     if(appUser.role === "COUNCIL"){
+    //         const updateAllSelector = document.createElement("select");
+    //         updateAllSelector.name = "priorities";
+    //         updateAllSelector.id = "updateAllPriority";
+    
+    //         for(const p of priorities){
+    //             const temp = document.createElement("option");
+    //             temp.value = p;
+    //             temp.text = p;
+    
+    //             updateAllSelector.add(temp);
+    //         }
+    
+    //         const updateAllMeetingInput = document.createElement("input");
+    //         updateAllMeetingInput.type = "text";
+    //         updateAllMeetingInput.id = "updateAllMeetingId";
+    
+    //         const updateAllBtn = document.createElement("button");
+    //         updateAllBtn.id = "updateAll";
+    //         updateAllBtn.innerText = "Update All";
+    
+    //         updateAllDiv.appendChild(updateAllMeetingInput);
+    //         updateAllDiv.appendChild(updateAllSelector);
+    //         updateAllDiv.appendChild(updateAllBtn);
+    //     }
+    // }
+
     for(const complaint of testComplaints){
         const complaintRow = document.createElement("tr");
 
@@ -34,7 +65,6 @@ async function renderComplaintsTable(complaints){
 
         let updateButton = null;
 
-        const appUser = JSON.parse(appUserJSON);
         if(appUser !== null){
             if(appUser.role === "COUNCIL"){
                 let tempPriority = "";
@@ -160,8 +190,39 @@ document.addEventListener("click", async event =>{
         alert("Something went wrong updating that complaint.");
     }
     }
+    if(element.id == "updateAll"){
+        alert("Updating all complaints. This can take a while... Press OK")
+        const complaints = await getComplaints();
+        const meetingIdValue = document.getElementById("updateAllMeetingId").value;
+        const prioritySelector = document.getElementById("updateAllPriority").value;;
+        for(const c of complaints){
+            if(meetingIdValue > 0)
+            {
+                if(c.id === meetingIdValue){
+                    updateComplaints(c.id, meetingIdValue, prioritySelector);
+                }
+            }
+        }
+        alert("All complaints have been updated.");
+    }
 
+    async function updateComplaints(complaintId, meetingId, complaintPriority)
+    {
+        if(element.id == "updateComplaint"){
+            const updatePriority = await fetch(`http://localhost:8080/complaints/${complaintId}/${complaintPriority}`, {
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        });
+        const updateMeeting = await fetch(`http://localhost:8080/complaints/${complaintId}/meetings/${meetingId}`, {
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        });
+    }
 
-});
+}});
 
 renderComplaintsTable();

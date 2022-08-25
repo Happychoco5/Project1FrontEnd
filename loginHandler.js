@@ -14,13 +14,13 @@
 
     function loginUser(){
         //Take to login page
-        window.location.assign("file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/login.html");
+        window.location.assign("https://terryblob.z13.web.core.windows.net/project1/login.html");
     }
 
     function logoutUser(){
         localStorage.clear();
         alert("Logged out successfully.");
-        window.location.assign("file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/complaint-viewer.html")
+        window.location.assign("https://terryblob.z13.web.core.windows.net/project1/complaint-viewer.html")
         //refresh
         //location.reload();
     }
@@ -78,6 +78,6 @@
     const newRegisButton = document.getElementById("regisAccount");
     if(newRegisButton !== null){
         newRegisButton.addEventListener("click", event=>{
-            window.location.assign("file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/register-account.html")
+            window.location.assign("https://terryblob.z13.web.core.windows.net/project1/register-account.html")
         });
     }

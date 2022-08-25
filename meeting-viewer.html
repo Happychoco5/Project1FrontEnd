@@ -5,9 +5,9 @@
     <title>Meetings</title>
 </head>
 <body>
-    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
+    <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
     <h1>Meeting Viewer</h1>
-
+    <h2>Upcoming Meetings</h2>
     <table>
         <thead>
             <tr>
@@ -18,10 +18,22 @@
 
         </tbody>
     </table>
+    <h2>Previous Meetings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Summary</th><th>Address</th><th>Status</th><th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="pastMeetingTableBody">
+
+        </tbody>
+    </table>
 </body>
 <script src="loginHandler.js"></script>
 <script>
     const meetingTableBody = document.getElementById("meetingTableBody");
+    const pastMeetingTableBody = document.getElementById("pastMeetingTableBody");
 
     async function getMeetings(){
         const response = await fetch("http://localhost:8080/meetings");
@@ -50,14 +62,23 @@
 
             const meetingTimeData = document.createElement("td");
             meetingTimeData.innerText = new Date(meeting.time);
-            
+
             meetingRow.appendChild(meetingIdData);
             meetingRow.appendChild(meetingSummaryData);
             meetingRow.appendChild(meeitngAddressData);
             meetingRow.appendChild(meetingStatusData);
             meetingRow.appendChild(meetingTimeData);
 
-            meetingTableBody.appendChild(meetingRow);
+            if(Date.now() > meeting.time)
+            {
+                //Past the date
+                pastMeetingTableBody.appendChild(meetingRow);
+            }
+            else
+            {
+                //Is not past the date
+                meetingTableBody.appendChild(meetingRow);
+            }
         }
     }
     

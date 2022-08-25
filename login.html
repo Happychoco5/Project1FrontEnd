@@ -5,7 +5,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="complaint-submission.html">Complaint Submission|</a></nav>
+    <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="complaint-submission.html">Complaint Submission|</a></nav>
     <h2>Login</h2>
     <form>
         <fieldset>
@@ -49,7 +49,7 @@
                 console.log(appUser);
                 alert("login successful!");
                 //Send user to new page
-                window.location = "file:///D:/Notes/MarkdownNotes/Project1Frontend/Project1FrontEnd/complaint-viewer.html"
+                window.location = "https://terryblob.z13.web.core.windows.net/project1/complaint-viewer.html"
                 // local storage can be used to cache information
                 appUser.password = null;
                 localStorage.setItem("appUser", JSON.stringify(appUser));

@@ -5,7 +5,7 @@
     <title>My Profile</title>
 </head>
 <body>
-    <nav id="navBar"><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
+    <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
     <h1>My Profile</h1>
     <ul id="profileInfo">
     
@@ -20,17 +20,21 @@
     function renderPage(){
 
         const appUserFname = document.createElement("li");
-        appUserFname.innerText = appUser.fname;
+        appUserFname.innerText = "First Name: " + appUser.fname;
 
         const appUserLname = document.createElement("li");
-        appUserLname.innerText = appUser.lname;
+        appUserLname.innerText = "Last Name: " + appUser.lname;
 
         const appUserUsername = document.createElement("li");
-        appUserUsername.innerText = appUser.username;
+        appUserUsername.innerText = "Username: " + appUser.username;
+
+        const appUserRole = document.createElement("li");
+        appUserRole.innerText = "Role: " + appUser.role;
 
         profileInfo.appendChild(appUserFname);
         profileInfo.appendChild(appUserLname);
         profileInfo.appendChild(appUserUsername);
+        profileInfo.appendChild(appUserRole);
     }
 
     renderPage();
