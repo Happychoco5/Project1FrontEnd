@@ -5,23 +5,36 @@
     <title>Meeting Creation Form</title>
 </head>
 <body>
-    <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
-    <h1>Create Meeting</h1>
-    <form>
-        <fieldset>
-            <legend>Meeting Creation</legend>
-            <label for="inputSummary">Summary:</label>
-            <input id="inputSummary" type="text" placeholder="" required minlength="3" maxlength="50">
-    
-            <label for="inputAddress">Address:</label>
-            <input id="inputAddress" type="text" placeholder="234 Banana Way" required>
-
-            <label for="inputTime">Date:</label>
-            <input id="inputTime" type="date" placeholder="08/24/2022" required>
-        </fieldset>
-
-        <button>Create</button>
-    </form>
+    <div class="container">
+        <div class="logo">
+          <div class="logo-area">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/014/888/395/large/florian-bar-hawkins-classic-2.jpg?1546103775">
+          </div>
+        </div>
+        <div class="navbar">
+          <div class="navbar-nested">
+            <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaints</a><a href="meeting-viewer.html">Meetings</a><a href="complaint-submission.html">Submit a Complaint</a></nav>
+          </div>
+        </div>
+        <div class="mainbody">
+            <h1>Create Meeting</h1>
+            <form>
+                <fieldset>
+                    <legend>Meeting Creation</legend>
+                    <label for="inputSummary">Summary:</label>
+                    <input id="inputSummary" type="text" placeholder="" required minlength="3" maxlength="50">
+            
+                    <label for="inputAddress">Address:</label>
+                    <input id="inputAddress" type="text" placeholder="234 Banana Way" required>
+        
+                    <label for="inputTime">Date:</label>
+                    <input id="inputTime" type="date" placeholder="08/24/2022" required>
+                </fieldset>
+        
+                <button>Create</button>
+            </form>
+        </div>
+      </div>
 </body>
 <script src="loginHandler.js"></script>
 <script>

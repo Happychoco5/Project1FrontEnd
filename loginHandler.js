@@ -31,6 +31,8 @@
             //We are logged in
             button.innerText = "Logout";
             button.id = "logButton";
+            button.style.backgroundColor = "green";
+            button.style.fontSize = "30px";
             if(JSON.parse(appUser).role === "COUNCIL"){
                 meetingCreator.innerText = "Meeting Creator";
                 meetingCreator.href = "meeting-submission.html";
@@ -52,12 +54,16 @@
             //We are logged out.
             //Create the login button
             button.innerText = "Login";
-            button.id = "logButton"
+            button.id = "logButton";
+            button.style.backgroundColor = "green";
+            button.style.fontSize = "30px";
             navBar.appendChild(button);
             
             //Create the register account button
             regisButton.innerText = "Register Account";
             regisButton.id = "regisAccount";
+            regisButton.style.backgroundColor = "green";
+            regisButton.style.fontSize = "30px";
             navBar.appendChild(regisButton);
 
             loggedIn = false;

@@ -2,33 +2,46 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="mainStyle.css">
-    <title>Document</title>
+    <title>Register Account</title>
 </head>
 <body>
-    <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaint Viewer|</a><a href="meeting-viewer.html">Meeting Viewer|</a><a href="complaint-submission.html">Complaint Submission|</a></nav>
-    <h2>Register Account</h2>
-    <form>
-        <fieldset>
-            <legend>Register Account</legend>
-
-            <label for="fname">First Name</label>
-            <input id="fname" type="text" placeholder="">
-
-            <label for="lname">Last Name</label>
-            <input id="lname" type="text">
-
-            <label for="username">Username</label>
-            <input id="username" type="text" placeholder="jim928">
-
-            <label for="password">Password</label>
-            <input id="password" type="password">
-
-            <label for="confirmPassword">Confirm Password</label>
-            <input id="confirmPassword" type="password">
-            <button>Register Account</button>
-
-        </fieldset>
-    </form>
+    <div class="container">
+        <div class="logo">
+          <div class="logo-area">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/014/888/395/large/florian-bar-hawkins-classic-2.jpg?1546103775">
+          </div>
+        </div>
+        <div class="navbar">
+          <div class="navbar-nested">
+            <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaints</a><a href="meeting-viewer.html">Meetings</a><a href="complaint-submission.html">Submit a Complaint</a></nav>
+          </div>
+        </div>
+        <div class="mainbody">
+            <h2>Register Account</h2>
+            <form>
+                <fieldset>
+                    <legend>Register Account</legend>
+        
+                    <label for="fname">First Name</label>
+                    <input id="fname" type="text" placeholder="">
+        
+                    <label for="lname">Last Name</label>
+                    <input id="lname" type="text">
+        
+                    <label for="username">Username</label>
+                    <input id="username" type="text" placeholder="jim928">
+        
+                    <label for="password">Password</label>
+                    <input id="password" type="password">
+        
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input id="confirmPassword" type="password">
+                    <button>Register Account</button>
+        
+                </fieldset>
+            </form>
+        </div>
+      </div>
 </body>
 <script>
     const fnameInput = document.getElementById("fname");

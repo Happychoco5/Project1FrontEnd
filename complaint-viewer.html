@@ -5,19 +5,32 @@
     <title>Complaints</title>
 </head>
 <body>
-    <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
-    <h1>Complaint Viewer</h1>
+      <div class="container">
+        <div class="logo">
+          <div class="logo-area">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/014/888/395/large/florian-bar-hawkins-classic-2.jpg?1546103775">
+          </div>
+        </div>
+        <div class="navbar">
+          <div class="navbar-nested">
+            <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaints</a><a href="meeting-viewer.html">Meetings</a><a href="complaint-submission.html">Submit a Complaint</a></nav>
+          </div>
+        </div>
+        <div class="mainbody">
+            <h1>Complaint Viewer</h1>
 
-    <table>
-        <thead>
-            <tr id="complaintTableHead">
-                <th>ID</th><th>Subject</th><th>Description</th><th>Meeting ID</th><th>Priority</th>
-            </tr>
-        </thead>
-        <tbody id="complaintTableBody">
-    
-        </tbody>
-    </table>
+            <table>
+                <thead>
+                    <tr id="complaintTableHead">
+                        <th>ID</th><th>Subject</th><th>Description</th><th>Meeting ID</th><th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody id="complaintTableBody">
+            
+                </tbody>
+            </table>
+        </div>
+      </div>
 </body>
 <script src="loginHandler.js"></script>
 <script src="complaint-viewer.js"></script>

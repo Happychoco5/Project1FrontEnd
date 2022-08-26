@@ -5,25 +5,38 @@
     <title>App User Viewer</title>
 </head>
 <body>
-    <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaint Viewer</a><a href="meeting-viewer.html">Meeting Viewer</a><a href="complaint-submission.html">Complaint Submission</a></nav>
-    <h1>App User Viewer</h1>
-    <select name="roles" id="roleSelect">
-        <option value="UNREGISTERED">UNREGISTERED</option>
-        <option value="CONSTITUENT">CONSTITUENT</option>
-        <option value="COUNCIL">COUNCIL</option>
-    </select>
-    <button id="sortRoles">Sort</button>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th><th>First Name</th><th>Last Name</th><th>Current Role</th><th>Promote</th><th>Demote</th>
-            </tr>
-        </thead>
-        <tbody id="appUserTableBody">
-
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="logo">
+          <div class="logo-area">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/014/888/395/large/florian-bar-hawkins-classic-2.jpg?1546103775">
+          </div>
+        </div>
+        <div class="navbar">
+          <div class="navbar-nested">
+            <nav id="navBar"><a href="homepage.html">Home</a><a href="complaint-viewer.html">Complaints</a><a href="meeting-viewer.html">Meetings</a><a href="complaint-submission.html">Submit a Complaint</a></nav>
+          </div>
+        </div>
+        <div class="mainbody">
+            <h1>App User Viewer</h1>
+            <select name="roles" id="roleSelect">
+                <option value="UNREGISTERED">UNREGISTERED</option>
+                <option value="CONSTITUENT">CONSTITUENT</option>
+                <option value="COUNCIL">COUNCIL</option>
+            </select>
+            <button id="sortRoles">Sort</button>
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th><th>First Name</th><th>Last Name</th><th>Current Role</th><th>Promote</th><th>Demote</th>
+                    </tr>
+                </thead>
+                <tbody id="appUserTableBody">
+        
+                </tbody>
+            </table>
+        </div>
+      </div>
 </body>
 <script src="loginHandler.js"></script>
 <script>

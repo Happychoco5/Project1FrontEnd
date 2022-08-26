@@ -1,9 +1,12 @@
 #navBar{
-    border: 1px solid;
+    font-size: 30px;
 }
 #navBar > a{
-    border: 1px solid;
-    margin: 5px;
+    margin: 8px;
+    border: 4px solid;
+    border-color: green;
+    text-decoration: none;
+    background-color: rgb(140, 230, 152);
 }
 
 table, th, td{
@@ -12,4 +15,72 @@ table, th, td{
 
 table{
     border-collapse: collapse;
+}
+.container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 0.6fr 1.7fr 1.7fr 0.5fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "logo navbar navbar"
+      "mainbody mainbody mainbody"
+      "mainbody mainbody mainbody"
+      ". . ."; 
+  }
+  
+  .logo {  display: grid;
+    grid-template-columns: 1fr 1.4fr 0.6fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "logo-area logo-area ."
+      "logo-area logo-area ."
+      "logo-area logo-area .";
+    grid-area: logo;
+    background-color: aliceblue;
+    border: 3px solid black;
+    border-collapse: collapse;
+  }
+  
+  .logo-area { 
+    grid-area: logo-area;
+    max-height: 250px;
+    max-width: 500px;
+ }
+  
+  .navbar {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "navbar-nested navbar-nested navbar-nested"
+      "navbar-nested navbar-nested navbar-nested";
+    grid-area: navbar;
+    background-color: aliceblue;
+    border: 3px solid black;
+    border-collapse: collapse;
+  }
+  
+  .navbar-nested { grid-area: navbar-nested;
+
+}
+
+.mainbody { grid-area: mainbody;
+}
+
+  img {
+    width:100%;
+    height:100%;
+}
+
+    
+  body{
+    background-image: url("https://wallpaperaccess.com/full/1216331.jpg");
+    background-position: center;
+     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
