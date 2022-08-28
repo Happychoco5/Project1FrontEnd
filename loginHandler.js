@@ -31,14 +31,17 @@
             //We are logged in
             button.innerText = "Logout";
             button.id = "logButton";
-            button.style.backgroundColor = "green";
-            button.style.fontSize = "30px";
+            button.style.backgroundColor = "rgb(90, 159, 113)";
+            button.style.fontSize = "20px";
+            button.style.borderRadius = "5px";
+            button.style.padding = "15px 30px";
+
             if(JSON.parse(appUser).role === "COUNCIL"){
-                meetingCreator.innerText = "Meeting Creator";
+                meetingCreator.innerText = "Create Meeting";
                 meetingCreator.href = "meeting-submission.html";
                 navBar.appendChild(meetingCreator);
 
-                appUserViewer.innerText = "AppUser Viewer";
+                appUserViewer.innerText = "AppUsers";
                 appUserViewer.href = "appuser-viewer.html";
                 navBar.appendChild(appUserViewer);
             }
@@ -55,15 +58,19 @@
             //Create the login button
             button.innerText = "Login";
             button.id = "logButton";
-            button.style.backgroundColor = "green";
-            button.style.fontSize = "30px";
+            button.style.backgroundColor = "rgb(90, 159, 113)";
+            button.style.fontSize = "20px";
+            button.style.borderRadius = "5px";
+            button.style.padding = "15px 30px";
             navBar.appendChild(button);
             
             //Create the register account button
             regisButton.innerText = "Register Account";
             regisButton.id = "regisAccount";
-            regisButton.style.backgroundColor = "green";
-            regisButton.style.fontSize = "30px";
+            regisButton.style.backgroundColor = "rgb(90, 159, 113)";
+            regisButton.style.fontSize = "20px";
+            regisButton.style.borderRadius = "5px";
+            regisButton.style.padding = "15px 30px";
             navBar.appendChild(regisButton);
 
             loggedIn = false;

@@ -22,9 +22,9 @@
       "logo-area logo-area ."
       "logo-area logo-area .";
     grid-area: logo;
-    background-color: aliceblue;
+    /* background-color: aliceblue;
     border: 3px solid black;
-    border-collapse: collapse;
+    border-collapse: collapse; */
   }
   
   .logo-area { 
@@ -43,9 +43,9 @@
       "navbar-nested navbar-nested navbar-nested"
       "navbar-nested navbar-nested navbar-nested";
     grid-area: navbar;
-    background-color: aliceblue;
+    /* background-color: aliceblue;
     border: 3px solid black;
-    border-collapse: collapse;
+    border-collapse: collapse; */
   }
   
   .navbar-nested {
@@ -63,7 +63,7 @@
       ". city-spotlight ."
       ". . .";
     grid-area: about;
-    background-color: aliceblue;
+    background-color: rgb(201, 231, 145);
   }
   
   .city-spotlight {  display: grid;
@@ -90,7 +90,7 @@
       ". . .";
     grid-area: spotlight-1;
     border: 1px solid;
-    background-color: rgb(162, 187, 209);
+    background-color: rgb(46, 101, 75);
   }
   
   .image-spotlight-1 { 
@@ -117,7 +117,7 @@
       ". . .";
     grid-area: spotlight-2;
     border: 1px solid;
-    background-color: rgb(162, 187, 209);
+    background-color: rgb(46, 101, 75);
   }
   
   .image-spotlight-2 { grid-area: image-spotlight-2;
@@ -139,7 +139,7 @@
       ". . .";
     grid-area: spotlight-3;
     border: 1px solid;
-    background-color: rgb(162, 187, 209);
+    background-color: rgb(46, 101, 75);
   }
   
   .image-spotlight-3 { grid-area: image-spotlight-3; }
