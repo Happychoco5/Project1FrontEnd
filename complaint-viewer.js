@@ -166,7 +166,11 @@ document.addEventListener("click", async event =>{
     const element = event.target;
     const complaintId = element.dataset.complaintID;
     const complaintPriority = document.getElementById("priorityId" + complaintId);
-    const complaintMeeting = document.getElementById("complaintMeeting" + complaintId)
+    const complaintMeeting = document.getElementById("complaintMeeting" + complaintId);
+    if (complaintMeeting.value === "NONE")
+    {
+        complaintMeeting.value = -1;
+    }
     //send the http with the data given
     if(element.id == "updateComplaint"){
         const updatePriority = await fetch(`http://localhost:8080/complaints/${complaintId}/${complaintPriority.value}`, {
